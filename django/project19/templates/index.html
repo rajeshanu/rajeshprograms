@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/display/" method="post">
+    {% csrf_token %}
+    <select name="hero">
+        <option> pavan </option>
+        <option> Mahesh</option>
+        <option> ntr </option>
+
+    </select>
+    <input type="submit" value="send">
+</form>
+<br>
+    {% if list %}
+<form action="/movie/" method="post">
+    {% csrf_token %}
+    <select name="movie"multiple>
+        {% for x in list %}
+            <option> {{ x }} </option>
+        {% endfor %}
+    </select>
+    <input type="submit"value="send">
+</form>
+    {% endif %}
+    {% for x in tli %}
+        {% load staticfiles %}
+        <p> <img src="{% static '' %}{{ x }}"/></p>
+    {% endfor %}
+
+</body>
+</html>

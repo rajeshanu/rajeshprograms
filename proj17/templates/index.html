@@ -1,0 +1,41 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/displayMovie/" method="post">
+    {% csrf_token %}
+    <select name="hero">
+        <option>nag</option>
+        <option value="vijay">Vijay</option>
+        <option value="uday">Uday</option>
+    </select>
+    <input type="submit" value="send">
+</form>
+
+
+{% if res %}
+<form action="/displayPoster/" method="post">
+    {% csrf_token %}
+    <select name="movie" multiple>
+    {% for x in res%}
+        <option value="{{ x }}">{{ x }}</option>
+    {% endfor %}
+    </select>
+<input type="hidden" name="he" value="{{ hero }}">
+<input type="submit" value="show Images">
+</form>
+{% endif %}
+
+{% if img_loc %}
+    {% for i in img_loc %}
+    <img src="{% static 'img/'%}{{ i }}" width="500" height="300"/>
+    {% endfor %}
+{% endif %}
+</body>
+</html>
+

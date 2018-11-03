@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/save/" method="post">
+    {% csrf_token %}
+    <table align="center" border="2">
+        <tr>
+            <th>
+                shop details
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <input type="number" placeholder="id" name="id" required value="{{ s2.id }}">
+            </td>
+        </tr>
+         <tr>
+            <td>
+                <input type="text" placeholder="name" name="name" required value="{{ s2.name }}">
+            </td>
+        </tr>
+         <tr>
+            <td>
+                <input type="number" placeholder="salary" name="salary" required value="{{ s2.salary }}">
+            </td>
+        </tr>
+         <tr>
+            <td>
+                <input type="submit" value="save">
+            </td>
+        </tr>
+    </table>
+</form>
+    <table align="center" border="2">
+        <tr>
+            <th colspan="5">
+                shop details
+            </th>
+        </tr>
+        <tr>
+            <td>id</td>
+            <td>name</td>
+            <td>salary</td>
+            <td>delete</td>
+            <td>update</td>
+        </tr>
+        {% for x in s1 %}
+            <tr>
+            <td>{{ x.id }}</td>
+            <td>{{ x.name }}</td>
+            <td>{{ x.salary }}</td>
+            <td><form action="/delete/" method="post">
+                {% csrf_token %}
+                <input type="submit" value="delete">
+                <input type="hidden" value="{{ x.id }}" name="delete">
+            </form>
+
+            </td>
+            <td>
+                <a href="/update/?update={{ x.id }}" >update</a></td>
+            </tr>
+
+
+        {% endfor %}
+    </table>
+
+</body>
+</html>

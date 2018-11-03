@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/save/" method="post">
+    {% csrf_token %}
+    <table align="center" border="2">
+        <tr>
+            <td>
+                <input type="checkbox" value="java" name="course">java
+            </td>
+        </tr>
+         <tr>
+            <td>
+                <input type="checkbox" value="python" name="course">python
+            </td>
+        </tr>
+         <tr>
+            <td>
+                <input type="checkbox" value="django" name="course">django
+            </td>
+        </tr>
+         <tr>
+            <td>
+                <input type="checkbox" value="project" name="course">project
+            </td>
+        </tr>
+         <tr>
+            <td>
+                <input type="submit" value="show">
+            </td>
+        </tr>
+
+
+    </table>
+</form>
+{% for x in check %}
+                    {{ x }}
+                {% endfor %}
+</body>
+</html>

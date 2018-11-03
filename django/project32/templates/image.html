@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if img %}
+{% load staticfiles %}
+<img src="{% static '' %}{{ img.image }}" width="100px" height="100px">
+{% endif %}
+{% if hero %}
+    {% load staticfiles %}
+    {{ hero }}
+    <img src="{% static '' %}{{ hero.image }}" width="50%" height="50%" style="margin-left: 25%;
+    margin-top: 15%;margin-bottom: 15% ;margin-right: 15%" onclick="document.getElementById('music').play();return false">
+    <audio controls style="...." id="music">
+    <source src="{% static '' %}{{ hero.song }}" type="audio/mpeg">
+    </audio>
+
+{% endif %}
+</body>
+</html>

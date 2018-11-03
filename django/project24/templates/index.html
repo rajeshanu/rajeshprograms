@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ <form method="post" class="post_form" enctype="multipart/form-data">
+        {% csrf_token %}
+     <tr><td>
+         {{ form.as_p }}
+     </td></tr>
+
+        <button type="submit" class="save btn btn-defult"> save</button>
+ </form>
+    <table align="center" border="2">
+    <tr>
+        <td>  no    </td>
+        <td>  name    </td>
+        <td>  cno    </td>
+        <td>  path    </td>
+        <td>  file    </td>
+    </tr>
+{% for y in d2 %}
+    <tr>
+    <td>{{ y.no }}</td>
+    <td>{{ y.name }}</td>
+    <td>{{ y.cno}}</td>
+    <td>{{ y.path }}</td>
+        {% load staticfiles %}
+    <td><img src="{% static '' %}{{ y.path}}" width="50px" height="50pcx"></td>
+    </tr>
+{%endfor  %}
+
+
+</table>
+</body>
+</html>

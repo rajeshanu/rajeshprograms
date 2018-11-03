@@ -1,0 +1,5 @@
+no1=int(input("1stno:"))
+no2=int(input("2ndno:"))
+print("the sum=",no1+no2)
+print("the div=",no1/no2)
+print("thanks")

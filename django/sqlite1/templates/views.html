@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table align="center" border="2">
+        <tr>
+            <td> IDNO </td>
+            <td> NAME </td>
+            <td> CNO </td>
+            <td> Update </td>
+            <td> Delete </td>
+        </tr>
+        {% for x,y in d2.items %}
+        <tr>
+            <td>
+                {{ x }}
+            </td>
+             <td>
+                {{ y.name }}
+            </td>
+            <td>
+                {{ y.salary }}
+            </td>
+            <td>{{ y.cno }}</td>
+            <td>
+                <a href="/register/?update={{ x }}">
+                            Update
+                        </a>
+                    </td>
+                    <td>
+                        <form action="/delete/" method="post">
+                            {% csrf_token %}
+                            <input type="submit" value="Delete">
+                            <input type="hidden" value="{{ x }}" name="delete_id">
+                        </form>
+                    </td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+
+</body>
+</html>

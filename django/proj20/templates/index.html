@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/display/" method="post">
+    {% csrf_token %}
+    date of birth
+    <input type="date" name="dob" max="{{ current_date }}"><br>
+    date of join
+    <input type="date" name="doj" max="{{ current_date}}"><br>
+    date of journey
+    <input type="date" name="date_period" min="{{ current_date }}" max="{{ max_date }}"><br>
+    <input type="submit" value="save">
+</form>
+{{ dob }}
+{{ doj }}
+{{ date_period }}
+</body>
+</html>

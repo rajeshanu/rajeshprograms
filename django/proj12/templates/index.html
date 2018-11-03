@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>                   
+    <form action="/save/" method="post">
+        {% csrf_token %}
+        <table align="center" border="2">
+            <tr>
+                <th> Register </th>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="number" placeholder="idno" name="idno" value="{{ key }}"  required >
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" placeholder="name"  name="name" required value="name">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="number" placeholder="salary"  name="salary" value="salary" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="number" placeholder="cno" name="cno"  value="cno" required >
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="save">
+                </td>
+            </tr>
+        </table>
+   </form>
+      <table align="center" border="2">
+            <th colspan="6">employee details</th>
+
+      <tr>
+            <td> idno </td>
+            <td> name </td>
+            <td> salary </td>
+            <td> cno </td>
+            <td> Update </td>
+            <td> Delete </td>
+        </tr>
+        {% for x in employee %}
+        <tr>
+            <td>
+                {{ x.id }}
+            </td>
+             <td>
+                {{ x.name }}
+            </td>
+            <td>
+                {{ x.salary}}
+            </td>
+            <td>{{ x.cno }}</td>
+            <td>
+                <a href="/update/?update_id={{ x.id }}">
+                            Update
+                        </a>
+                    </td>
+                    <td>
+                        <form action="/delete/" method="post">
+                            {% csrf_token %}
+                            <input type="submit" value="Delete">
+                            <input type="hidden" value="{{ x.id }}" name="delete_id">
+                        </form>
+                    </td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</body>
+</html>

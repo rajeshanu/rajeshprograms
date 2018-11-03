@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="" method="post">
+    {% csrf_token %}
+    <table align="center" border="2">
+    <tr><td>
+        <input type="text" placeholder="name" name="name" required>
+    </td></tr>
+    <tr><td>
+        <input type="number" placeholder="age" name="age" required>
+    </td></tr>
+    <tr><td>
+        <input type="number" placeholder="cno" name="cno" required>
+    </td></tr>
+    <tr>
+        <td>
+            <select name="desig">
+                <option>select designation</option>
+                <option>devoloper </option>
+                <option> tester</option>
+                <option> tl </option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="number" placeholder="salary" name="salary" required>
+        </td>
+    </tr>
+    <tr>
+        <td>
+        <input type="submit" value="save">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            {{ message }}
+        </td>
+    </tr>
+    </table>
+
+</form>
+
+</body>
+</html>

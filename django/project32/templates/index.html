@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table align="center" border="2">
+    <tr>
+        <td>
+            <form action="/pawan/" method="post">
+                {% csrf_token %}
+            <input type="hidden" value="pawan" name="t1">
+            <input type="submit" value="pawan">
+                </form>
+        </td>
+        <td>
+            <form action="/ntr/" method="post">
+                {% csrf_token %}
+            <input type="hidden" value="ntr" name="t1">
+            <input type="submit" value="ntr">
+                </form>
+        </td>
+        <td>
+            <form action="/mahesh/" method="post">
+                {% csrf_token %}
+            <input type="hidden" value="mahesh" name="t1">
+            <input type="submit" value="mahesh">
+                </form>
+        </td>
+    </tr>
+</table>
+<form action="/hero/" method="post" >
+    {% csrf_token %}
+    <table>
+        <tr>
+            <td>
+                <input type="text" placeholder="enter name" name="t4">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="get">
+            </td>
+        </tr>
+    </table>
+
+</form>
+
+</body>
+</html>
